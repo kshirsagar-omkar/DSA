@@ -1,0 +1,22 @@
+#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Accept_Display/accept_display.h"
+#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Bubble_Sort/Bubble_Sort.h"
+
+int main()
+{
+	int arr[5];
+	int n = 5;
+
+	accept_int_1d_array(arr, n);
+
+
+
+	/*Bubble Sort*/
+	Bubble_Sort(arr, n);
+
+
+
+
+	display_int_1d_array(arr, n);
+
+	return 0;
+}
