@@ -1,11 +1,12 @@
 #include<iostream>
 #include<memory>
+#include<string>
 
-
+template<class UserDataType>
 class BubbleSort
 {
 	private:
-		std::unique_ptr<int[]> nums;
+		std::unique_ptr<UserDataType[]> nums;
 		int numsSize;
 
 	public:
@@ -17,7 +18,7 @@ class BubbleSort
 				return; 
 			}
 			this->numsSize = numsSize;
-			nums = std::make_unique<int[]>(this->numsSize);
+			nums = std::make_unique<UserDataType[]>(this->numsSize);
 		}
 		BubbleSort(BubbleSort &other) = delete;
 
@@ -37,11 +38,15 @@ class BubbleSort
 		}
 
 
-		void swapping(int &a, int &b)
+		void swapping(UserDataType &a, UserDataType &b)
 		{
-			a^=b;
-			b^=a;
-			a^=b;
+			// a^=b;
+			// b^=a;
+			// a^=b;
+			UserDataType temp = a;
+			a = b;
+			b = temp;
+
 		}
 
 
@@ -78,11 +83,40 @@ int main()
 
 	// std::unique_ptr<int> ptr = std::make_unique<int[]>(10);
 	int n = 5;
-	BubbleSort obj(n);
+	int option;
+	
+	std::cout << "What Type of Data You Want To Sort : \t1.Intiger\t2.Float\t\t3.string\nEnter Option(1,2,3) : ";
+	std::cin >> option;
 
-	obj.accept();
-	obj.sort();
-	obj.display();
+	std::cout << "How Many Elements You Want to Enter : ";
+	std::cin >> n;
+
+	if(option==1)
+	{
+		BubbleSort <int>obj(n);
+		obj.accept();
+		obj.sort();
+		obj.display();
+	}
+	else if(option==2)
+	{
+		BubbleSort <float>obj(n);
+		obj.accept();
+		obj.sort();
+		obj.display();
+	}
+	else if(option==3)
+	{
+		BubbleSort <std::string>obj(n);
+		obj.accept();
+		obj.sort();
+		obj.display();
+	}
+	else
+	{
+		std::cout << "Enter Valid Option!!" << std::endl;
+	}
+
 
 	return 0;
 }
