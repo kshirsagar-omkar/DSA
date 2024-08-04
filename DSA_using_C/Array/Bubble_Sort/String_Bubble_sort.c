@@ -17,23 +17,17 @@ void swap(char* a, char* b, int wordlen)
 
 
 
+
+
 void stringBubbleSort(char **str, int n, int wordlen)
 {
 	for(unsigned i=0; i<n-1; ++i)
 	{
 		for(unsigned j=0; j<n-(i+1); ++j)
 		{
-			for(unsigned k=0; str[j][k]; ++k)
+			if(strcmp(str[j],str[j+1]) > 0)
 			{
-				if(str[j][k] > str[j+1][k])
-				{
-					swap(str[j],str[j+1],wordlen);
-					break;
-				}
-				else if(str[j][k] == str[j+1][k])
-				{
-					continue;
-				}
+				swap(str[j],str[j+1],wordlen);
 			}
 		}
 	}
@@ -66,15 +60,14 @@ void accept(char **str, int n, int wordlen)
 int main()
 {
 
-	
-
-	int n = 3;
-	int wordlen = 3;
+	int n = 0;
+	int wordlen = 0;
 
 	printf("How Many String You Want To Enter : ");
 	scanf("%d",&n);
 	printf("What is Lenght of max String : ");
 	scanf("%d",&wordlen);
+
 
 	char **str = (char**) malloc(n * sizeof(char**));
 	for(unsigned i=0; i<n; ++i)
@@ -87,8 +80,6 @@ int main()
 	stringBubbleSort(str, n, wordlen);
 
 	display(str,n);
-
-
 
 
 	for(unsigned i=0; i<n; ++i)
