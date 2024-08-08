@@ -11,8 +11,10 @@ int main()
 
 
 	/*Bubble Sort*/
-	Bubble_Sort(arr, n);
+	// Bubble_Sort(arr, n);
 
+	/*Improved bubble sort*/
+	Improved_Bubble_Sort(arr, n);
 
 
 
