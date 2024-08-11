@@ -7,8 +7,12 @@
 */
 
 
+/*
+	For Insertion Sort :
+						#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Insertion_Sort/Insertion_Sort.h"
+*/
 
-#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Insertion_Sort/Insertion_Sort.h"
+#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Selection_Sort/Selection_Sort.h"
 
 
 int main()
@@ -27,8 +31,10 @@ int main()
 	//Improved_Bubble_Sort(arr, n);
 
 	/*Insertion Sort*/
-	Insertion_Sort(arr, n);
+	//Insertion_Sort(arr, n);
 
+	/*Selection Sort*/
+	Selection_Sort(arr, n);
 
 
 	display_int_1d_array(arr, n);
