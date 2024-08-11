@@ -20,8 +20,8 @@ int main()
 	int arr[5];
 	int n = 5;
 
-	accept_int_1d_array(arr, n);
-
+	// accept_int_1d_array(arr, n);
+	generate_int_1d_array(arr, n);
 
 
 	/*Bubble Sort*/

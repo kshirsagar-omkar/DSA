@@ -6,6 +6,7 @@
 
 
 #include<stdio.h>
+#include<time.h>
 #include<stdlib.h>
 
 void accept_int_1d_array(int *arr, const int n)
@@ -36,7 +37,19 @@ void display_int_1d_array(const int *arr, const int n)
 	}
 }
 
-
+void generate_int_1d_array(int *a, const int n)
+{
+	if(n<=0)
+	{
+		printf("Invalid Array Size!!!");
+		exit(0);
+	}
+	srand( time(0) );
+	for(unsigned i=0; i<n; ++i)
+	{
+		a[i] = rand()%100;				//To get 2 digit number SIMPLE maths 
+	}
+}
 
 
 
