@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Accept_Display/accept_display.h"
 
 /*
@@ -12,8 +14,12 @@
 						#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Insertion_Sort/Insertion_Sort.h"
 */
 
-#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Selection_Sort/Selection_Sort.h"
+/*
+	For Selection Sort :
+	#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Selection_Sort/Selection_Sort.h"
+*/
 
+ #include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Merge_Sort/MergeSort.h"
 
 int main()
 {
@@ -22,7 +28,8 @@ int main()
 
 	// accept_int_1d_array(arr, n);
 	generate_int_1d_array(arr, n);
-
+	printf("Befor Sort ");
+	display_int_1d_array(arr, n);
 
 	/*Bubble Sort*/
 	// Bubble_Sort(arr, n);
@@ -34,9 +41,13 @@ int main()
 	//Insertion_Sort(arr, n);
 
 	/*Selection Sort*/
-	Selection_Sort(arr, n);
+	//Selection_Sort(arr, n);
+
+	/*Merge Sort*/
+	mergeSort(arr, 0, n-1);
 
 
+	printf("\n\nBefor Sort ");
 	display_int_1d_array(arr, n);
 
 	return 0;
