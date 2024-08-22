@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Accept_Display/accept_display.h"
 
@@ -19,12 +20,32 @@
 	#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Selection_Sort/Selection_Sort.h"
 */
 
- #include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Merge_Sort/MergeSort.h"
+/*	For Merge Sort :
+ 	#include "/home/vaibhav/Documents/omkar/DSA/DSA_using_C/Array/Merge_Sort/MergeSort.h"
+*/
+
+
 
 int main()
 {
-	int arr[5];
-	int n = 5;
+	int *arr = NULL;
+	int n = 0;
+
+	printf("How Many Elements : ");
+	scanf("%d",&n);
+
+	if(n <= 0)
+	{
+		printf("Invalid Input !!!\n");
+		exit(0);
+	}
+
+	arr = (int*) malloc(n * sizeof(int));
+	if(arr == NULL)
+	{
+		printf("Incuifient Storage Allocation on HEAP!!!\n");
+		exit(0);
+	}
 
 	// accept_int_1d_array(arr, n);
 	generate_int_1d_array(arr, n);
@@ -44,10 +65,11 @@ int main()
 	//Selection_Sort(arr, n);
 
 	/*Merge Sort*/
-	mergeSort(arr, 0, n-1);
+	//mergeSort(arr, 0, n-1);
 
 
-	printf("\n\nBefor Sort ");
+
+	printf("\n\nAfter Sort ");
 	display_int_1d_array(arr, n);
 
 	return 0;
