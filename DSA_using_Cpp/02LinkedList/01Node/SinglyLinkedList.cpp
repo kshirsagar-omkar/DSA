@@ -14,6 +14,7 @@ class node
 	public:
 
 		explicit node(const int data=0, node *next = nullptr) : data(data) , next(next) {};
+		// node(const node &other) : data(other.data) , next(other.next) {};
 
 		int getData()
 		{
@@ -37,7 +38,7 @@ class node
 		{
 			node *lastNode = this;
 
-			for(unsigned i=1; i<=n; ++i)
+			for(unsigned i=2; i<=n; ++i)
 			{
 				lastNode->next = new node();
 				lastNode = lastNode->next;
@@ -68,17 +69,19 @@ class node
 
 		void free()
 		{
-			if(this->next)
+			node *f = this;
+			node *temp = f;
+			while(temp)
 			{
-				this->next->free();
+				temp = f;
+				f = f->next;
+				delete temp;
 			}
-			delete this;
 		}
 
 
 		~node() 
 		{
-			delete next;
 		}
 
 };
@@ -89,12 +92,12 @@ int main()
 {
 	node *Head = new node();
 
-	int n=5;
+	int n=3;
 
 	Head->create(n);
 	Head->fill();
 	Head->print();
-	Head->free();
+	// Head->free();
 
 	return 0;
 }
