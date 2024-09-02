@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct node
 {
@@ -32,5 +33,13 @@ int sumSLL(struct node *firstNode);
 
 //Problem 1: Reverse a Singly Linked List
 struct node* reverseSLL(struct node *firstNode);
+
+
+//Problem 2: Detect a Cycle in a Linked List
+struct node* detectCycleInLL(struct node *firstNode);
+struct node* createNode(int data);
+void initializeExamples(struct node** heads);
+
+
 
 #endif
