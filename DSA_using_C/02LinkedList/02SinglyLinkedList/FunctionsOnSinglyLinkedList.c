@@ -131,8 +131,8 @@ struct node* dellLast(struct node* firstNode)
 {
 	if(firstNode==NULL) return NULL;
 
-	struct node *lastNode = NULL;
-	struct node *secondLastNode = NULL;
+	struct node *lastNode = firstNode;
+	struct node *secondLastNode = lastNode;
 
 	for(lastNode = firstNode;   lastNode->next   ; lastNode = lastNode->next)
 	{
@@ -176,6 +176,167 @@ int sumSLL(struct node *firstNode)
 
 	return sumOfSinglyLinkedList;
 }
+
+
+void countNumberOfOddEvenInSLL(struct node *firstNode)
+{
+	printf("\n");
+	if(!firstNode) 
+	{
+		printf("List Is Empty!!!\n");
+		return;
+	}
+
+	int oddCount=0;
+	int evenCount=0;
+
+	struct node *temp = firstNode;
+	while(temp)
+	{
+		if( temp->data & 1 )
+		{
+			++oddCount;
+		}
+		else
+		{
+			++evenCount;
+		}
+		temp = temp->next;
+	}
+	printf("Odd Numbers in List : %d\nEven Numbers in List : %d\n", oddCount, evenCount);
+}
+
+
+void countPositiveNegativeNumbersInSLL(struct node *firstNode)
+{
+	printf("\n");
+	if(!firstNode) 
+	{
+		printf("List Is Empty!!!\n");
+		return;
+	}
+
+	int positiveCount=0;
+	int negativeCount=0;
+	int neturalCount=0;
+
+	struct node *temp = firstNode;
+	while(temp)
+	{
+		if( temp->data > 0 )
+		{
+			++positiveCount;
+		}
+		else if( temp->data < 0 )
+		{
+			++negativeCount;
+		}
+		else
+		{
+			++neturalCount;
+		}
+		temp = temp->next;
+	}
+	printf("Positive Numbers in List : %d\nNegative Numbers in List : %d\nNeturals(0's) in List : %d\n", positiveCount, negativeCount, neturalCount);
+}
+
+
+void printOddEvenInSLL(struct node *firstNode)
+{
+	printf("\n");
+	if(!firstNode) 
+	{
+		printf("List Is Empty!!!\n");
+		return;
+	}
+
+	struct node *temp = firstNode;
+
+	
+	struct node *odd = NEWNODE;
+	odd->data=0;
+	odd->next=NULL;
+	struct node *tempOdd = odd;
+
+	struct node *even = NEWNODE;
+	even->data=0;
+	even->next=NULL;
+	struct node *tempEven = even;
+
+
+	while(temp)
+	{
+		if( temp->data & 1 )
+		{
+			tempOdd->data = temp->data;
+
+			tempOdd->next = NEWNODE;
+			tempOdd = tempOdd->next;
+			tempOdd->data=0;
+			tempOdd->next=NULL;
+		}
+		else
+		{
+			tempEven->data = temp->data;
+
+			tempEven->next = NEWNODE;
+			tempEven = tempEven->next;
+			tempEven->data=0;
+			tempEven->next=NULL;
+		}
+
+		temp = temp->next;
+	}
+
+	/*Hence I have created one extra node that should be free at all*/
+	odd = dellLast(odd);
+	even = dellLast(even);
+
+
+	printf("Odd ");
+	display(odd);
+	printf("Even ");
+	display(even);
+
+	freeAll(odd);
+	freeAll(even);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -9,7 +9,7 @@
 
 int main()
 {
-/*
+
 	struct node* Head = NULL;
 	int n=0;
 
@@ -21,7 +21,7 @@ int main()
 	display(Head);
 
 
-
+/*
 	printf("--Add First--\n");	
 	Head = addFirst(Head);
 	display(Head);
@@ -57,7 +57,7 @@ int main()
 	printf("--reverseSLL--\n");
 	Head = reverseSLL(Head);
 	display(Head);
-*/
+
 
 
 	printf("Detecting Cycle is present or not in LL\n");
@@ -78,9 +78,22 @@ int main()
 
 
 
+	printf("--Count Odd Even in List--\n");
+	countNumberOfOddEvenInSLL(Head);
+	display(Head);
+	
+
+	printf("--Positive, Negative Numbers in List--\n");
+	countPositiveNegativeNumbersInSLL(Head);
+	display(Head);
+*/
+
+	printf("--Odd Even in List--\n");
+	printOddEvenInSLL(Head);
+	display(Head);
 
 
 
-	// Head = freeAll(Head);
+	Head = freeAll(Head);
 	return 0;
 }

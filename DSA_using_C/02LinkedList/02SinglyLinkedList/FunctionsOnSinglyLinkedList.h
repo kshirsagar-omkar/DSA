@@ -28,6 +28,44 @@ struct node* dellLast(struct node* firstNode);
 size_t lengthSLL(struct node *firstNode);
 int sumSLL(struct node *firstNode);
 
+/*Write a Function which prints no. (cnt) of odd & even numbers in list*/
+void countNumberOfOddEvenInSLL(struct node *firstNode);
+
+/*Write a function which counts no. of positive and negative numbers in lisst*/
+void countPositiveNegativeNumbersInSLL(struct node *firstNode);
+
+/*Print Odd Even In List*/
+void printOddEvenInSLL(struct node *firstNode);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*ChatGPT Problem Statements*/
 
