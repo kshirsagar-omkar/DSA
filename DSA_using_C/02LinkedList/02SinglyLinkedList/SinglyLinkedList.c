@@ -12,6 +12,9 @@ int main()
 
 	struct node* Head = NULL;
 	int n=0;
+	int key=0;
+	int pos = 0;
+	int replaceValue = 0;
 
 	printf("How Many node's You Want to Create : ");
 	scanf("%d",&n);
@@ -86,13 +89,58 @@ int main()
 	printf("--Positive, Negative Numbers in List--\n");
 	countPositiveNegativeNumbersInSLL(Head);
 	display(Head);
-*/
+
 
 	printf("--Odd Even in List--\n");
 	printOddEvenInSLL(Head);
 	display(Head);
 
 
+	printf("--Alternative Numbers in List--\n");
+	printAlternativeNumbersInSLL(Head);
+	display(Head);
+
+
+	printf("--Search in List--\n");
+	key=0;
+	printf("Enter a Key To Search In SLL : ");
+	scanf("%d",&key);
+	pos = searchSLL(Head, key);
+	if(pos)
+	{
+		printf("%d Found at Position %d\n", key, pos);
+	}
+	else
+	{
+		printf("%d Not Found in List \n", key);
+	}
+	display(Head);
+
+
+	printf("--FindAllAndReplace Numbers in List--\n");
+	printf("Enter A Number To Find In SLL : ");
+	scanf("%d",&key);
+	printf("Enter The Number That Will Replace %d in SLL : ", key);
+	scanf("%d",&replaceValue);
+	findAllAndReplace(Head, key, replaceValue);
+	display(Head);
+
+
+	pos = 0;
+	printf("--insertInSLL--\n");
+	printf("Enter a position to insert Node : ");
+	scanf("%d",&pos);
+	Head = insertInSLL(Head,pos);
+	display(Head);
+*/
+
+
+	pos = 0;
+	printf("--deleteInSLL--\n");
+	printf("Enter a position to Delete Node : ");
+	scanf("%d",&pos);
+	Head = deleteInSLL(Head,pos);
+	display(Head);
 
 	Head = freeAll(Head);
 	return 0;

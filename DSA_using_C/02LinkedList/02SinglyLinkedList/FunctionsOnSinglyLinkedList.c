@@ -44,10 +44,10 @@ void display(struct node *firstNode)
 	printf("Linked List : ");
 	while(temp)
 	{
-		printf("%d ", temp->data);
+		printf("%d --> ", temp->data);
 		temp = temp->next;
 	}
-	printf("\n\n");
+	printf("NULL\n\n");
 }
 
 
@@ -303,20 +303,158 @@ void printOddEvenInSLL(struct node *firstNode)
 }
 
 
+void printAlternativeNumbersInSLL(struct node *firstNode)
+{
+	if(!firstNode)
+	{
+		printf("Given Lis Is Empty!!!\n");
+		return;
+	}
+
+	struct node *temp=firstNode;
+	while(temp)
+	{
+		printf("%d ", temp->data);
+		if( !(temp->next) )
+		{
+			break;
+		}
+		temp = temp->next->next;
+	}
+	printf("\n");
+}
+
+
+size_t searchSLL(struct node *firstNode, const int key)
+{
+	if(!firstNode) return 0;
+
+	struct node *temp=firstNode;
+	int pos = 1;
+	while(temp)
+	{
+		if(temp->data == key) return pos;
+		++pos;
+		temp = temp->next;
+	}
+	return 0;
+}
+
+
+void findAllAndReplace(struct node *firstNode, const int key, const int replaceValue)
+{
+	if(!firstNode)
+	{
+		printf("Given Lis Is Empty!!!\n");
+		return;
+	}
+	struct node *temp=firstNode;
+	while(temp)
+	{
+		if(temp->data == key) temp->data = replaceValue;
+		temp = temp->next;
+	}
+}
+
+
+
+
+struct node* insertInSLL(struct node *firstNode, const int pos)
+{
+	if(pos <= 0)
+	{
+		printf("Position Cant Be negative or 0!!!\n");
+		return firstNode;
+	}
+	else if(!firstNode)
+	{
+		printf("Given List Is Empty!!!\n");
+		return firstNode;
+	}
+
+	struct node *nodeToBeAdd = NEWNODE;
+	struct node *secondLastNode = firstNode;
+
+
+	printf("Enter The data : ");
+	scanf("%d", &nodeToBeAdd->data);
+	nodeToBeAdd->next = NULL;
+
+	if(pos == 1)
+	{
+		nodeToBeAdd->next = firstNode;
+		firstNode = nodeToBeAdd;
+		printf("Node is Added Succesfully :)\n");
+		return firstNode;
+	}
+	else
+	{	
+		for(int i=1; i<=pos-2 && secondLastNode; ++i)
+		{
+			secondLastNode = secondLastNode->next;
+		}
+		if(secondLastNode)
+		{
+			nodeToBeAdd->next = secondLastNode->next;
+			secondLastNode->next = nodeToBeAdd;
+			printf("Node is Added Succesfully :)\n");
+			return firstNode;
+		}
+		else
+		{
+			printf("Invalid Position !!!\n");
+			free(nodeToBeAdd);
+			return firstNode;
+		}
+	}	
+
+}
 
 
 
 
 
+struct node *deleteInSLL(struct node *firstNode, const int pos)
+{
+	if(pos <= 0)
+	{
+		printf("Position Cant Be negative or 0!!!\n");
+		return firstNode;
+	}
+	else if(!firstNode)
+	{
+		printf("Given List Is Empty!!!\n");
+		return firstNode;
+	}
+	
 
+	struct node *t=NULL;
+	struct node *s=firstNode;
 
+	if(pos==1)
+	{
+		t = firstNode;
+		firstNode = firstNode->next;
+		free(t);
+	}
 
+	for(int i=1; i<=pos-2 && s ; ++i)
+	{
+		s = s->next;
+	}
 
-
-
-
-
-
+	if(s && s->next)
+	{
+		t=s->next;
+		s->next = t->next;
+		free(t);
+	}
+	else
+	{
+		printf("Invalid Position !!!\n");
+	}
+	return firstNode;
+}
 
 
 

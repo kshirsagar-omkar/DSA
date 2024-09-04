@@ -37,14 +37,23 @@ void countPositiveNegativeNumbersInSLL(struct node *firstNode);
 /*Print Odd Even In List*/
 void printOddEvenInSLL(struct node *firstNode);
 
+/*ptint alternative numbers in a list*/
+void printAlternativeNumbersInSLL(struct node *firstNode);
 
 
+/*Search Given Number in SLL ang Return Position otherwise 0*/
+size_t searchSLL(struct node *firstNode, const int key);
 
 
+/*Write a Function that FindAll And Replace */
+void findAllAndReplace(struct node *firstNode, const int key, const int replaceValue);
 
 
+/*Insert in SLL*/
+struct node* insertInSLL(struct node *firstNode, const int pos);
 
-
+/*Delete in SSL*/
+struct node *deleteInSLL(struct node *firstNode, const int pos);
 
 
 
