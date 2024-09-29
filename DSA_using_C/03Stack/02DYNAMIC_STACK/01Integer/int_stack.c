@@ -5,7 +5,7 @@
 void init(struct Stack *stack)
 {
 
-	freeStack(stack);	//if stack is not empty
+	// freeStack(stack);	//if stack is not empty
 
 	stack->head = NULL;
 	stack->top = BOTTOM;

@@ -12,9 +12,9 @@
 #include "char_stack.h"
 
 
-void init(struct Stack *stack)
+void initCHAR(struct CHARstack *stack)
 {
-	freeStack(stack);	//if Gien Stack is not empty
+	freeStackCHAR(stack);	//if Gien Stack is not empty
 
 	stack->head = NULL;
 	stack->top = BOTTOM;
@@ -22,15 +22,15 @@ void init(struct Stack *stack)
 }
 
 
-bool isEmpty(struct Stack *stack)
+bool isEmptyCHAR(struct CHARstack *stack)
 {
 	return stack->top == BOTTOM;
 }
 
 
-void push(struct Stack *stack, char data)
+void pushCHAR(struct CHARstack *stack, char data)
 {
-	struct node* temp = NEWNODE;
+	struct CHARnode* temp = CHAR_NEWNODE;
 	temp->data = data;
 	temp->next = NULL;
 	temp->prev = NULL;
@@ -49,10 +49,10 @@ void push(struct Stack *stack, char data)
 }
 
 
-int pop(struct Stack *stack)
+int popCHAR(struct CHARstack *stack)
 {
 	char data = stack->top->data;
-	struct node *temp = stack->top;
+	struct CHARnode *temp = stack->top;
 
 	stack->top = stack->top->prev;
 
@@ -69,16 +69,16 @@ int pop(struct Stack *stack)
 }
 
 
-int peek(struct Stack *stack)
+int peekCHAR(struct CHARstack *stack)
 {
 	return stack->top->data;
 }
 
 
-void freeStack(struct Stack *stack)
+void freeStackCHAR(struct CHARstack *stack)
 {
 	if(stack)
 	{
-		while( ! isEmpty(stack) ) pop(stack);
+		while( ! isEmptyCHAR(stack) ) popCHAR(stack);
 	}
 }

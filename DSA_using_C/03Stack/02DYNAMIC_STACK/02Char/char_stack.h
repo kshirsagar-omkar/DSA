@@ -8,36 +8,36 @@
 
 
 
-#define NEWNODE (struct node*) malloc(sizeof(struct node))
+#define CHAR_NEWNODE (struct CHARnode*) malloc(sizeof(struct CHARnode))
 #define BOTTOM NULL
 
 
 
 
-struct node
+struct CHARnode
 {
-	struct node *next;
+	struct CHARnode *next;
 	char data;
-	struct node *prev;
+	struct CHARnode *prev;
 };
 
 
 
-struct Stack
+struct CHARstack
 {
-	struct node *head;		// Hold LinkedList
-	struct node *top;		// Point To Topmost Node
+	struct CHARnode *head;		// Hold LinkedList
+	struct CHARnode *top;		// Point To Topmost Node
 };
 
 
 
 
-void init(struct Stack *stack);
-bool isEmpty(struct Stack *stack);
-void push(struct Stack *stack, char data);
-int pop(struct Stack *stack);
-int peek(struct Stack *stack);
-void freeStack(struct Stack *stack);
+void initCHAR(struct CHARstack *stack);
+bool isEmptyCHAR(struct CHARstack *stack);
+void pushCHAR(struct CHARstack *stack, char data);
+int popCHAR(struct CHARstack *stack);
+int peekCHAR(struct CHARstack *stack);
+void freeStackCHAR(struct CHARstack *stack);
 
 
 
