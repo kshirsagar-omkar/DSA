@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 @SuppressWarnings("ALL")
@@ -49,6 +48,9 @@ public class Searching {
 
 
 //        System.out.println(Arrays.toString(arr));
+
+
+        sc.close();
     }
 
     private static void accept(Integer arr[]) {
@@ -66,9 +68,11 @@ public class Searching {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
+        sc.close();
     }
 
 
+    @SuppressWarnings("unused")
     private static Integer linearSearch(Integer arr[], Integer target){
         try{
             for(Integer i=0; i<arr.length; ++i){
