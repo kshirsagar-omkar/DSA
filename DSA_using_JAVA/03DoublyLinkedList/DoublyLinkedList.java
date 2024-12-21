@@ -51,6 +51,7 @@ public class DoublyLinkedList {
             curr.next = node;
             curr = curr.next;
         }        
+        sc.close();
     }
 
 
@@ -73,7 +74,37 @@ public class DoublyLinkedList {
 
 
 
+    public void insert(int pos, int data){
+        if(pos <= 0){
+            System.out.println("Invalid Position!!");
+            return;
+        }
+        if(pos==1){
+            Node node = new Node(null, data, head);
+            if (head != null) {
+                head.prev = node;
+            }
+            head = node;
+            return;
+        }
+        
 
+        Node curr = head;
+        for(int i=1; i<pos-1 && curr != null; ++i){
+            curr = curr.next;
+        }
+
+        if(curr != null){
+            Node node = new Node(curr, data, curr.next);
+            if(curr.next != null){
+                curr.next.prev = node;
+            }
+            curr.next = node;
+        }
+        else{
+            System.out.println("Invalid Position!!");
+        }
+    }
 
 
 
@@ -81,8 +112,19 @@ public class DoublyLinkedList {
 
        
         DoublyLinkedList dll =  new DoublyLinkedList();
-        dll.create(5);
+        dll.create(3);
         dll.display();
+
+
+        System.out.println("Insert ===================");
+
+        dll.insert(1, 10); // Insert at head
+        dll.insert(2, 20); // Insert at tail
+        dll.insert(2, 15); // Insert at position 2
+        dll.insert(5, 25); // Invalid position
+
+        dll.display(); // Output: Doubly Linked List: 10 15 20
+
 
     }    
 }
