@@ -24,7 +24,33 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 this.right.inOrder();            
         } 
 
+        public void preOrder(){
+
+            System.out.print(this.data + " ");
+
+            if(this.left != null) this.left.preOrder();
+            if(this.right != null) this.right.preOrder();
+        }
+
+        
+        public void postOrder(){
+            
+            if(this.left != null) this.left.postOrder();
+            if(this.right != null) this.right.postOrder();
+        
+            System.out.print(this.data + " ");
+        }
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -63,7 +89,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
             }
 
-            if( prev.data.compareTo(prev.data) < 0 )
+            if( data.compareTo(prev.data) < 0 )
                 prev.left = node;
             else
                 prev.right = node;
@@ -86,6 +112,29 @@ public class BinarySearchTree<T extends Comparable<T>> {
         else
             System.out.println("Tree is empty..");
     }
+
+    public void preOrder()
+    {
+        if(root != null)
+        {
+            root.preOrder();
+        }
+        else
+        {
+            System.out.println("Tree is Empty..");
+        }
+    }
+
+    public void postOrder(){
+        if(root != null)
+        {
+            root.postOrder();
+        }
+        else
+        {
+            System.out.println("Tree is Empty..");
+        }
+    }
     
 
 
@@ -101,15 +150,24 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         BinarySearchTree<Integer> root = new BinarySearchTree<Integer>();
 
-        Integer n = 10;
-        for(Integer i=0; i<n; ++i){
+        root.insert(10);
+        root.insert(44);
+        root.insert(-1);
+        root.insert(30);
+        root.insert(5);
+        root.insert(99);
 
-            root.insert(i);
 
-        }
-
-
+        System.out.print("\nInOrder : ");
         root.inOrder();
+
+        System.out.print("\nPreOrder : ");
+        root.preOrder();
+
+
+        System.out.print("\nPostOrder : ");
+        root.postOrder();
+
 
     }
 
